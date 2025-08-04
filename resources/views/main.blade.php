@@ -40,13 +40,13 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
+                        <a href="{{ url('home')}}"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
                     </li>
                     <li>
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>jenjang </a>
+                        <a href="{{ url('edulevels')}}"> <i class="menu-icon fa fa-dashboard"></i>jenjang </a>
                     </li>
                     <li>
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Program </a>
+                        <a href="{{ url('programs')}}"> <i class="menu-icon fa fa-dashboard"></i>Program </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
