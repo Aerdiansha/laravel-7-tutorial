@@ -62,9 +62,16 @@
                             <td>{{ $item->name}}</td>
                             <td>{{ $item->desc}}</td>
                             <td class="text-center">
-                                <a href="" class="btn btn-primary btn-sm">
+                                <a href="{{ url('edulevels/edit/' . $item->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil"></i>
                                 </a>
+                                <form action="{{ url('edulevels/' . $item->id)}}" class="d-inline" method="POST" onsubmit="return confirm('yakin akan menghapus data?')">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                             
                         </tr>
