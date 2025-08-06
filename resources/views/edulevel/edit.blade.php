@@ -47,11 +47,21 @@
                             @csrf
                             <div class="form-group">
                                 <label for="">Nama Jenjang</label>
-                                <input type="text" name="name" value="{{ $edulevel->name }}" class="form-control" autofocus required>
+                                <input type="text" name="name" value="{{ old('name', $edulevel->name) }}" class="form-control @error('name') is-invalid @enderror" autofocus required>
+                                @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="">keterangan</label>
-                                <textarea name="desc" class="form-control">{{ $edulevel->desc }}</textarea>
+                                <textarea name="desc" class="form-control @error('desc') is-invalid @enderror">{{ old('desc', $edulevel->desc) }}</textarea>
+                                @error('desc')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>

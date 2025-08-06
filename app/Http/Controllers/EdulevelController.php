@@ -25,25 +25,54 @@ class EdulevelController extends Controller
 
     public function addProcess(Request $request)
     {
-        DB::table('edulevels')->insert([
-            'name' => $request->name,
-            'desc' => $request->desc
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|min:2',
+                'desc' => 'required',
+            ],
+            [
+                'name.required' => 'Nama jenjang harus diisi',
+                'name.min' => 'Nama jenjang minimal 2 karakter',
+                'desc.required' => 'Deskripsi jenjang harus diisi',
+            ]
+        );
+
+        DB::table('edulevels')->insert(
+            [
+                'name' => $request->name,
+                'desc' => $request->desc
+            ]
+        );
         return redirect('edulevels')->with('status', 'jenjang berhasil ditambahkan');
     }
 
     public function edit($id)
     {
+
+
         $edulevel = DB::table('edulevels')->where('id', $id)->first();
         return view('edulevel/edit', compact('edulevel'));
     }
 
     public function editProcess(Request $request, $id)
     {
-        DB::table('edulevels')->where('id', $id)->update([
-            'name' => $request->name,
-            'desc' => $request->desc
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|min:2',
+                'desc' => 'required',
+            ],
+            [
+                'name.required' => 'Nama jenjang harus diisi',
+                'desc.required' => 'Deskripsi jenjang harus diisi',
+            ]
+        );
+
+        DB::table('edulevels')->where('id', $id)->update(
+            [
+                'name' => $request->name,
+                'desc' => $request->desc
+            ]
+        );
         return redirect('edulevels')->with('status', 'jenjang berhasil diupdate');
     }
 

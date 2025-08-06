@@ -27,3 +27,5 @@ Route::post('edulevels', 'EdulevelController@addProcess');
 Route::get('edulevels/edit/{id}', 'EdulevelController@edit');
 Route::patch('edulevels/{id}', 'EdulevelController@editProcess');
 Route::delete('edulevels/{id}', 'EdulevelController@delete');
+
+Route::resource('programs', 'ProgramController');

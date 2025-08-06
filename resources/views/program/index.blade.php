@@ -1,13 +1,13 @@
 @extends('main')
 
-@section('title', 'Edulevel')
+@section('title', 'Program')
 
 @section('breadcrumbs')
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Edulevels</h1>
+                <h1>program</h1>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="" >Edulevels</a></li>
+                        <li><a href="" >Program</a></li>
                         <li class="active">Data</li>
                     </ol>
                 </div>
@@ -37,10 +37,10 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-left">
-                    <strong>Data Jenjang</strong>
+                    <strong>Data Program</strong>
                 </div>
                 <div class="pull-right">
-                    <a href="{{ url('edulevels/add')}}" class="btn btn-success btn-sm">
+                    <a href="{{ url('programs/add')}}" class="btn btn-success btn-sm">
                         <i class="fa fa-plus"></i> Add 
                     </a>
                 </div>
@@ -51,21 +51,21 @@
                         <tr>
                             <th>No.</th>
                             <th>Name</th>
-                            <th>Description</th>
+                            <th>Info</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($edulevels as $item)
+                        {{-- @foreach ($programs as $item)
                         <tr>
                             <td>{{ $loop->iteration}}</td>
                             <td>{{ $item->name}}</td>
                             <td>{{ $item->desc}}</td>
                             <td class="text-center">
-                                <a href="{{ url('edulevels/edit/' . $item->id) }}" class="btn btn-primary btn-sm">
+                                <a href="{{ url('programs/edit/' . $item->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <form action="{{ url('edulevels/' . $item->id)}}" class="d-inline" method="POST" onsubmit="return confirm('yakin akan menghapus data?')">
+                                <form action="{{ url('programs/' . $item->id)}}" class="d-inline" method="POST" onsubmit="return confirm('yakin akan menghapus data?')">
                                     @method('delete')
                                     @csrf
                                     <button class="btn btn-danger btn-sm">
@@ -75,7 +75,7 @@
                             </td>
                             
                         </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                 </table>
             </div>
